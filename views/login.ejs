@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-<h1>CARe login</h1>
-    <% if (locals.loginErrors) { %>
-    <% locals.loginErrors.forEach(function(message) { %>
-        <p><%= message %></p>
-    <%})%>
+    <h1>CARe <% title %></h1>
+    <% if (locals.errors) { %>
+    <% locals.errors.forEach(function(message) { %>
+        <p class='error'><%= message %></p>
+    <% }) %>
     <% } %>
-    <form action='login' method='post'>
+    <form action=<%= title %> method='post'>
         <p><input type='text' name='user' placeholder='Username'/></p>
         <p><input type='password' name='pass' placeholder='Password'/></p>
-        <p><input type='submit' value='Login'/></p>
+        <p><input type='submit' value=<%= title %> /></p>
     </form>
+    <% if (title === 'Login') { %>
+        <a href='register'>First time? Register here.</a>
+    <% } %>
 </body>
 </html>
