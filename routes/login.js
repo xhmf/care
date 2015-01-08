@@ -7,7 +7,7 @@ router.get('/', function(req, res) {
     if (req.session.user) {
         res.redirect('/');
     } else {
-        res.render('login', { title: 'Login' });
+        res.render('form', { title: 'Login' });
     }
 });
 
@@ -25,7 +25,7 @@ router.post('/', function(req, res, next) {
              } else {
                  res.locals.errors = [];
                  res.locals.errors.push('Incorrect username or password');
-                 res.render('login', { title: 'Login' });
+                 res.render('form', { title: 'Login' });
              }
         });
     } else { // one or both fields left blank
@@ -36,7 +36,7 @@ router.post('/', function(req, res, next) {
         if (!req.body.pass) {
             errors.push('Please enter password');
         }
-        res.render('login', { title: 'Login' });
+        res.render('form', { title: 'Login' });
     }
 });
 

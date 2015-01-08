@@ -7,5 +7,34 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %>, <%= locals.user %></p>
+    <form action='/entry' method='post'>
+        <p><input type='text' name='miles' placeholder='Distance'/>
+        <input type='text' name='gas' placeholder='Amount of gas'/>
+        <input type='submit' value='Add'/></p>
+    </form>
+    <% if (errors) { %>
+        <% errors.forEach(function(error) { %>
+            <p class='error'><%= error %></p>
+        <% }) %>
+    <% } %>
+    <% if (false) { %>
+        <p>DID NOT WORK</p>
+        <%} %>
+    <% if (entries) { %>
+        <table>
+        <tr>
+            <td>MPG</td>
+            <td>Distance (mi)</td>
+            <td>Gas (gal)</td>
+        </tr>
+        <% entries.forEach(function(entry) { %>
+        <tr>
+            <td><%= entry.mpg %></td>
+            <td><%= entry.miles %></td>
+            <td><%= entry.gas %></td>
+        </tr>
+        <% }) %>
+    </table>
+    <% } %>
   </body>
 </html>

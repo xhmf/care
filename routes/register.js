@@ -7,7 +7,7 @@ router.get('/', function(req, res) {
     if (req.session.user) {
         res.redirect('/');
     } else {
-        res.render('login', { title: 'Register' });
+        res.render('form', { title: 'Register' });
     }
 });
 
@@ -26,7 +26,7 @@ router.post('/', function(req, res) {
         if (!bodyPass) {
             errors.push('Please do not leave password field blank');
         }
-        res.render('login', { title: 'Register' });
+        res.render('form', { title: 'Register' });
     }
 });
 
