@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-<body>
+  </head>
+  <body>
     <h1>CARe <% title %></h1>
     <% if (locals.errors) { %>
     <% locals.errors.forEach(function(message) { %>
-        <p class='error'><%= message %></p>
+    <p class='error'><%= message %></p>
     <% }) %>
     <% } %>
     <form action=<%= title %> method='post'>
-        <p><input type='text' name='user' placeholder='Username'/></p>
-        <p><input type='password' name='pass' placeholder='Password'/></p>
-        <p><input type='submit' value=<%= title %> /></p>
+      <p><input type='text' name='user' placeholder='Username'/></p>
+      <p><input type='password' name='pass' placeholder='Password'/></p>
+      <p><input type='submit' value=<%= title %> /></p>
     </form>
     <% if (title === 'Login') { %>
-        <a href='register'>First time? Register here.</a>
+    <a href='register'>First time? Register here.</a>
     <% } %>
-</body>
+  </body>
 </html>
