@@ -3,6 +3,8 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   </head>
   <body>
     <h1>CARe <% title %></h1>
@@ -11,13 +13,33 @@
     <p class='error'><%= message %></p>
     <% }) %>
     <% } %>
-    <form action=<%= title %> method='post'>
-      <p><input type='text' name='user' placeholder='Username'/></p>
-      <p><input type='password' name='pass' placeholder='Password'/></p>
-      <p><input type='submit' value=<%= title %> /></p>
+    <form class='form-horizontal' action=<%= title %> method='post'>
+      <div class='form-group'>
+        <label for='inputUser' class='control-label col-xs-1'>Username</label>
+        <div class='col-xs-6'>
+          <input type='text' class='form-control' name='user' id='inputUser' placeholder='Username'>
+        </div>
+      </div>
+      <div class='form-group'>
+        <label for='inputPass' class='control-label col-xs-1'>Password</label>
+        <div class='col-xs-6'>
+          <input type='password' class='form-control' name='pass' id='inputPass' placeholder='Password'>
+        </div>
+      </div>
+      <div class='form-group'>
+        <div class='col-xs-2'>
+          <button type='submit' class='btn btn-primary'><%= title %></button>
+        </div>
+      </div>
     </form>
     <% if (title === 'Login') { %>
-    <a href='register'>First time? Register here.</a>
+    <form class='form-horizontal' action='/register'>
+      <button type='submit' class='btn btn-primary'>First time?</button>
+    </form>
     <% } %>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   </body>
 </html>

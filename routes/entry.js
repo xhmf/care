@@ -7,7 +7,7 @@ router.post('/', function(req, res, next) {
   var miles = parseFloat(req.body.miles);
   var gas = parseFloat(req.body.gas);
   // check if both are valid decimals
-  if (!isNaN(miles) && !isNaN(gas)) {
+  if (!isNaN(miles) && !isNaN(gas) && gas !== 0) {
     var current = new Entry({
       miles: miles,
       gas: gas,
@@ -25,6 +25,9 @@ router.post('/', function(req, res, next) {
     }
     if (isNaN(gas)) {
       errors.push('Invalid gas field');
+    }
+    if (gas === 0) {
+      errors.push('Gas field may not be 0');
     }
     req.session.errors = errors;
     res.redirect('/');
